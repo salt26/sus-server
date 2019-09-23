@@ -3,7 +3,7 @@
   <h1>SUS Questionnaire Service</h1>
   {% if username %}
     <p class=username>Hello, {{ username }}!
-    {% if username in all_responses %}
+    {% if respond_already %}
     <p>Do you want to revise your response for <a href="{{ url_for('questionnaire') }}">a SUS questionnaire</a>?
     {% else %}
     <p>Do you want to respond <a href="{{ url_for('questionnaire') }}">a SUS questionnaire</a>?

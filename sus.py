@@ -9,7 +9,8 @@ sum_of_scores = 0.0
 @app.route('/')
 def index():
     if 'username' in session:
-        return render_template('index_sus.html', username=session['username'])
+        return render_template('index_sus.html', username=session['username'], \
+            respond_already=(session['username'] in all_responses))
     else:
         return render_template('index_sus.html')
 
@@ -69,9 +70,11 @@ def questionnaire():
             return redirect(url_for('index'))
         else:
             error = 'Please respond to all 10 questions before submit.'
-            return render_template('questionnaire_sus.html', error=error, responses=responses)
+            return render_template('questionnaire_sus.html', error=error, responses=responses, \
+                respond_already=(session['username'] in all_responses))
 
-    return render_template('questionnaire_sus.html')
+    return render_template('questionnaire_sus.html', \
+        respond_already=(session['username'] in all_responses))
 
 
 @app.errorhandler(404)
