@@ -1,0 +1,348 @@
+{% extends "layout_sus.html" %}
+{% block body %}
+  <style>
+  table {
+    table-layout: fixed;
+    width: 80%;
+  }
+  td {
+    text-align: center;
+    width: 16%;
+  }
+  input[type=submit] {
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 20pt;
+  }
+  </style>
+  <h1>The System Usability Scale Questionnaire</h1>
+  {% if error %}
+    <p class=error style="color: red"><strong>Error:</strong> {{ error }}
+  {% endif %}
+  <form method=post>
+    <br><hr><br>
+    {% if responses and responses[0][5] %}
+    <h3 style="color: red">1. I think that I would like to use this system frequently.</h3>
+    {% else %}
+    <h3>1. I think that I would like to use this system frequently.</h3>
+    {% endif %}
+    <table>
+      <tr>
+        <td>Strongly disagree</td>
+        <td>Disagree</td>
+        <td>Neutral</td>
+        <td>Agree</td>
+        <td>Strongly agree</td>
+      </tr>
+      <tr>
+        {% if responses %}
+          {% for i in range(0, 5) %}
+            {% if responses[0][i] %}
+              <td><input type="radio" name="1" value="{{ i }}" checked></td>
+            {% else %}
+              <td><input type="radio" name="1" value="{{ i }}"></td>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <td><input type="radio" name="1" value="0"></td>
+        <td><input type="radio" name="1" value="1"></td>
+        <td><input type="radio" name="1" value="2"></td>
+        <td><input type="radio" name="1" value="3"></td>
+        <td><input type="radio" name="1" value="4"></td>
+        {% endif %}
+      </tr>
+    </table>
+    <br><br><hr><br>
+    {% if responses and responses[1][5] %}
+    <h3 style="color: red">2. I found the system unnecessarily complex.</h3>
+    {% else %}
+    <h3>2. I found the system unnecessarily complex.</h3>
+    {% endif %}
+    <table>
+      <tr>
+        <td>Strongly disagree</td>
+        <td>Disagree</td>
+        <td>Neutral</td>
+        <td>Agree</td>
+        <td>Strongly agree</td>
+      </tr>
+      <tr>
+        {% if responses %}
+          {% for i in range(4, -1, -1) %}
+            {% if responses[1][i] %}
+              <td><input type="radio" name="2" value="{{ i }}" checked></td>
+            {% else %}
+              <td><input type="radio" name="2" value="{{ i }}"></td>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <td><input type="radio" name="2" value="4"></td>
+        <td><input type="radio" name="2" value="3"></td>
+        <td><input type="radio" name="2" value="2"></td>
+        <td><input type="radio" name="2" value="1"></td>
+        <td><input type="radio" name="2" value="0"></td>
+        {% endif %}
+      </tr>
+    </table>
+    <br><br><hr><br>
+    {% if responses and responses[2][5] %}
+    <h3 style="color: red">3. I thought the system was easy to use.</h3>
+    {% else %}
+    <h3>3. I thought the system was easy to use.</h3>
+    {% endif %}
+    <table>
+      <tr>
+        <td>Strongly disagree</td>
+        <td>Disagree</td>
+        <td>Neutral</td>
+        <td>Agree</td>
+        <td>Strongly agree</td>
+      </tr>
+      <tr>
+        {% if responses %}
+          {% for i in range(0, 5) %}
+            {% if responses[2][i] %}
+              <td><input type="radio" name="3" value="{{ i }}" checked></td>
+            {% else %}
+              <td><input type="radio" name="3" value="{{ i }}"></td>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <td><input type="radio" name="3" value="0"></td>
+        <td><input type="radio" name="3" value="1"></td>
+        <td><input type="radio" name="3" value="2"></td>
+        <td><input type="radio" name="3" value="3"></td>
+        <td><input type="radio" name="3" value="4"></td>
+        {% endif %}
+      </tr>
+    </table>
+    <br><br><hr><br>
+    {% if responses and responses[3][5] %}
+    <h3 style="color: red">4. I think that I would need the support of a technical person to be able to use this system.</h3>
+    {% else %}
+    <h3>4. I think that I would need the support of a technical person to be able to use this system.</h3>
+    {% endif %}
+    <table>
+      <tr>
+        <td>Strongly disagree</td>
+        <td>Disagree</td>
+        <td>Neutral</td>
+        <td>Agree</td>
+        <td>Strongly agree</td>
+      </tr>
+      <tr>
+        {% if responses %}
+          {% for i in range(4, -1, -1) %}
+            {% if responses[3][i] %}
+              <td><input type="radio" name="4" value="{{ i }}" checked></td>
+            {% else %}
+              <td><input type="radio" name="4" value="{{ i }}"></td>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <td><input type="radio" name="4" value="4"></td>
+        <td><input type="radio" name="4" value="3"></td>
+        <td><input type="radio" name="4" value="2"></td>
+        <td><input type="radio" name="4" value="1"></td>
+        <td><input type="radio" name="4" value="0"></td>
+        {% endif %}
+      </tr>
+    </table>
+    <br><br><hr><br>
+    {% if responses and responses[4][5] %}
+    <h3 style="color: red">5. I found the various functions in this system were well integrated.</h3>
+    {% else %}
+    <h3>5. I found the various functions in this system were well integrated.</h3>
+    {% endif %}
+    <table>
+      <tr>
+        <td>Strongly disagree</td>
+        <td>Disagree</td>
+        <td>Neutral</td>
+        <td>Agree</td>
+        <td>Strongly agree</td>
+      </tr>
+      <tr>
+        {% if responses %}
+          {% for i in range(0, 5) %}
+            {% if responses[4][i] %}
+              <td><input type="radio" name="5" value="{{ i }}" checked></td>
+            {% else %}
+              <td><input type="radio" name="5" value="{{ i }}"></td>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <td><input type="radio" name="5" value="0"></td>
+        <td><input type="radio" name="5" value="1"></td>
+        <td><input type="radio" name="5" value="2"></td>
+        <td><input type="radio" name="5" value="3"></td>
+        <td><input type="radio" name="5" value="4"></td>
+        {% endif %}
+      </tr>
+    </table>
+    <br><br><hr><br>
+    {% if responses and responses[5][5] %}
+    <h3 style="color: red">6. I thought there was too much inconsistency in this system.</h3>
+    {% else %}
+    <h3>6. I thought there was too much inconsistency in this system.</h3>
+    {% endif %}
+    <table>
+      <tr>
+        <td>Strongly disagree</td>
+        <td>Disagree</td>
+        <td>Neutral</td>
+        <td>Agree</td>
+        <td>Strongly agree</td>
+      </tr>
+      <tr>
+        {% if responses %}
+          {% for i in range(4, -1, -1) %}
+            {% if responses[5][i] %}
+              <td><input type="radio" name="6" value="{{ i }}" checked></td>
+            {% else %}
+              <td><input type="radio" name="6" value="{{ i }}"></td>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <td><input type="radio" name="6" value="4"></td>
+        <td><input type="radio" name="6" value="3"></td>
+        <td><input type="radio" name="6" value="2"></td>
+        <td><input type="radio" name="6" value="1"></td>
+        <td><input type="radio" name="6" value="0"></td>
+        {% endif %}
+      </tr>
+    </table>
+    <br><br><hr><br>
+    {% if responses and responses[6][5] %}
+    <h3 style="color: red">7. I would imagine that most people would learn to use this system very quickly.</h3>
+    {% else %}
+    <h3>7. I would imagine that most people would learn to use this system very quickly.</h3>
+    {% endif %}
+    <table>
+      <tr>
+        <td>Strongly disagree</td>
+        <td>Disagree</td>
+        <td>Neutral</td>
+        <td>Agree</td>
+        <td>Strongly agree</td>
+      </tr>
+      <tr>
+        {% if responses %}
+          {% for i in range(0, 5) %}
+            {% if responses[6][i] %}
+              <td><input type="radio" name="7" value="{{ i }}" checked></td>
+            {% else %}
+              <td><input type="radio" name="7" value="{{ i }}"></td>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <td><input type="radio" name="7" value="0"></td>
+        <td><input type="radio" name="7" value="1"></td>
+        <td><input type="radio" name="7" value="2"></td>
+        <td><input type="radio" name="7" value="3"></td>
+        <td><input type="radio" name="7" value="4"></td>
+        {% endif %}
+      </tr>
+    </table>
+    <br><br><hr><br>
+    {% if responses and responses[7][5] %}
+    <h3 style="color: red">8. I found the system very cumbersome to use.</h3>
+    {% else %}
+    <h3>8. I found the system very cumbersome to use.</h3>
+    {% endif %}
+    <table>
+      <tr>
+        <td>Strongly disagree</td>
+        <td>Disagree</td>
+        <td>Neutral</td>
+        <td>Agree</td>
+        <td>Strongly agree</td>
+      </tr>
+      <tr>
+        {% if responses %}
+          {% for i in range(4, -1, -1) %}
+            {% if responses[7][i] %}
+              <td><input type="radio" name="8" value="{{ i }}" checked></td>
+            {% else %}
+              <td><input type="radio" name="8" value="{{ i }}"></td>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <td><input type="radio" name="8" value="4"></td>
+        <td><input type="radio" name="8" value="3"></td>
+        <td><input type="radio" name="8" value="2"></td>
+        <td><input type="radio" name="8" value="1"></td>
+        <td><input type="radio" name="8" value="0"></td>
+        {% endif %}
+      </tr>
+    </table>
+    <br><br><hr><br>
+    {% if responses and responses[8][5] %}
+    <h3 style="color: red">9. I felt very confident using the system.</h3>
+    {% else %}
+    <h3>9. I felt very confident using the system.</h3>
+    {% endif %}
+    <table>
+      <tr>
+        <td>Strongly disagree</td>
+        <td>Disagree</td>
+        <td>Neutral</td>
+        <td>Agree</td>
+        <td>Strongly agree</td>
+      </tr>
+      <tr>
+        {% if responses %}
+          {% for i in range(0, 5) %}
+            {% if responses[8][i] %}
+              <td><input type="radio" name="9" value="{{ i }}" checked></td>
+            {% else %}
+              <td><input type="radio" name="9" value="{{ i }}"></td>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <td><input type="radio" name="9" value="0"></td>
+        <td><input type="radio" name="9" value="1"></td>
+        <td><input type="radio" name="9" value="2"></td>
+        <td><input type="radio" name="9" value="3"></td>
+        <td><input type="radio" name="9" value="4"></td>
+        {% endif %}
+      </tr>
+    </table>
+    <br><br><hr><br>
+    {% if responses and responses[9][5] %}
+    <h3 style="color: red">10. I needed to learn a lot of things before I could get going with this system.</h3>
+    {% else %}
+    <h3>10. I needed to learn a lot of things before I could get going with this system.</h3>
+    {% endif %}
+    <table>
+      <tr>
+        <td>Strongly disagree</td>
+        <td>Disagree</td>
+        <td>Neutral</td>
+        <td>Agree</td>
+        <td>Strongly agree</td>
+      </tr>
+      <tr>
+        {% if responses %}
+          {% for i in range(4, -1, -1) %}
+            {% if responses[9][i] %}
+              <td><input type="radio" name="10" value="{{ i }}" checked></td>
+            {% else %}
+              <td><input type="radio" name="10" value="{{ i }}"></td>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+        <td><input type="radio" name="10" value="4"></td>
+        <td><input type="radio" name="10" value="3"></td>
+        <td><input type="radio" name="10" value="2"></td>
+        <td><input type="radio" name="10" value="1"></td>
+        <td><input type="radio" name="10" value="0"></td>
+        {% endif %}
+      </tr>
+    </table>
+    <br><br><hr><br>
+    <p><input type=submit value=Submit>
+  </form>
+{% endblock %}

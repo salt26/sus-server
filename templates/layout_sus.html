@@ -1,0 +1,13 @@
+<!doctype html>
+<title>SUS Questionnaire Application</title>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <h3>Notifications</h3>
+    <ul class=flashes>
+    {% for message in messages %}
+      <li style="color: blue">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
