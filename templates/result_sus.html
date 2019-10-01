@@ -1,0 +1,12 @@
+{% extends "layout_sus.html" %}
+{% block body %}
+  <h1>SUS Questionnaire Result</h1>
+  <p class=username style="color: darkgoldenrod">Until now, {{ response_count }} peoples have responded to the questionnaire. The average score is {{ average }}.
+  {% if respond_already %}
+  <p>{{ username }}, Do you want to revise your response for <a href="{{ url_for('questionnaire') }}">a SUS questionnaire</a>?
+  {% else %}
+  <p>{{ username }}, Do you want to respond <a href="{{ url_for('questionnaire') }}">a SUS questionnaire</a>?
+  {% endif %}
+  <p>After responding the questionnaire, please <a href="{{ url_for('logout') }}">log out</a>.
+  <p><a href="{{ url_for('index') }}">Return to main page.</a>
+{% endblock %}

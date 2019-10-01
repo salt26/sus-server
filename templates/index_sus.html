@@ -5,10 +5,11 @@
     <p class=username>Hello, {{ username }}!
     {% if respond_already %}
     <p>Do you want to revise your response for <a href="{{ url_for('questionnaire') }}">a SUS questionnaire</a>?
+    <p>Do you want to see the <a href="{{ url_for('result') }}">result</a>?</p>
     {% else %}
     <p>Do you want to respond <a href="{{ url_for('questionnaire') }}">a SUS questionnaire</a>?
     {% endif %}
-    <p>After respond the questionnaire, please <a href="{{ url_for('logout') }}">log out</a>.
+    <p>After responding the questionnaire, please <a href="{{ url_for('logout') }}">log out</a>.
   {% else %}
     <p>To respond a system usability scale(SUS) questionnaire, please <a href="{{ url_for('login') }}">log in</a> first!
   {% endif %}
