@@ -1,13 +1,15 @@
 # How to start
 
-## Development mode
+[How to set up your virtual environment](https://flask.palletsprojects.com/en/1.1.x/installation/)
+
+## Development mode (Windows)
 
 <pre><code>venv\Scripts\activate
 set FLASK_APP=sus.py
 flask run
 </code></pre>
 
-## Deployment mode
+## Deployment mode (Windows)
 
 <pre><code>venv\Scripts\activate
 set PYTHONPATH=.
